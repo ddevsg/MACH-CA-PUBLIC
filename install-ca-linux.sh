@@ -1,6 +1,6 @@
 #! /bin/bash
 echo "This will fail if not ran with SUDO"
-mkdir /usr/local/share/ca-certificates/mach
+mkdir -p /usr/local/share/ca-certificates/mach
 cat >> /usr/local/share/ca-certificates/mach/mach.crt << __END
 -----BEGIN CERTIFICATE-----
 MIIFxjCCA66gAwIBAgIBATANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJQSDEL
