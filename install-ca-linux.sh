@@ -1,6 +1,7 @@
 #! /bin/bash
 echo "This will fail if not ran with SUDO"
-cat >> /etc/ssl/certs/ca-certificates.crt << __END
+mkdir /usr/share/ca-certificates/mach
+cat >> /usr/share/ca-certificates/mach/mach.crt << __END
 -----BEGIN CERTIFICATE-----
 MIIFxjCCA66gAwIBAgIBATANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJQSDEL
 MAkGA1UECAwCUEgxDzANBgNVBAcMBk1hbmlsYTENMAsGA1UECgwETUFDSDETMBEG
@@ -35,4 +36,8 @@ d8ygqRbvtgsNdjdZn2iKQx04KByr+zwyz7K4jOFiZCcOuuCicNO5VKkh8SWqRwv8
 BWtN9B2Kl0L8sCSsyaw3kewCSogo1pkQMOSA1GWC1a3gFSxa5fVjYmql
 -----END CERTIFICATE-----
 __END
+chmod 755 /usr/share/ca-certificates/mach
+chmod 644 /usr/share/ca-certificates/mach/mach.crt
+sudo update-ca-certificates
+
 echo "Done!"
